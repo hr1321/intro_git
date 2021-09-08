@@ -11,6 +11,14 @@ Gitの練習をしていきます。
 イニシャル
 git init
 
+git remote add origin https://github.com/hr1321/intro_git.git
+
+git branch -M main
+
+プッシュ
+git push -u origin main
+
+
 ファイルの変更確認
 git status
 
@@ -33,8 +41,20 @@ git log -p index.html
 git log -n 3
 
 
-ファイルを削除した場合
+ファイルを削除したい場合:Git管理からも削除
 git rm ファイル名
+
+ディレクトリも一緒に削除:Git管理からも削除
+git rm -r ディレクトリ名
+
+ファイルは残し、Gitの管理から削除
+git rm --cached ファイル名
+
+元に戻す(ファイルはsecond.txt)ローカルは戻ってない。
+git reset HEAD second.txt
+
+ローカルにも削除分を戻す。
+git checkout second.txt
 
 
 ファイルの変更差分
@@ -43,3 +63,39 @@ git diff
 
 ステージングとコミットの差分
 git diff HEAD
+
+GitHub = リモートリポジトリ
+
+originという名前でGitHubのリポジトリにアクセスできる
+エイリアス
+GitHubのデフォルトではorigin
+
+orginというリモートリポジトリへmainブランチを送信する
+git push origin main
+
+originというリモートリポジトリへfeatureブランチを送信する
+pit push origin feature
+
+gitで管理したくないファイル: .gitignoreファイル
+
+#　で行のコメント
+指定したファイルを除外
+index.html
+ルートディレクトリを指定
+/root.html
+ディレクトリ以下を除外
+dir/
+
+**************************************************
+GitHub
+
+ファイルを選択より
+
+raw:テキストのrawデータ
+ソースのコピー等で使用
+
+blame
+誰がどこを変更したかを表示
+
+History
+変更履歴確認
